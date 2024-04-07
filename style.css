@@ -1,0 +1,33 @@
+body{
+    background-color: #282a36;
+    font-family: 'Courier New', Courier, monospace;
+    color: #90949C;
+}
+
+input[type=text]{
+    width: 75%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size:14px;
+}
+
+input[type=submit]{
+    width: 10%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline-block;
+    font-size:14px;
+}
+
+input[type=submit]:hover{
+    background-color: #45a049;
+}
