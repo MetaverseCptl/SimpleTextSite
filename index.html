@@ -1,0 +1,13 @@
+<input id="messageBox" type="text">
+<button id="sendButton">Send message</button>
+<script>
+    $(document).ready(function() {
+        $.get("/message-get", function(data, status){
+            $("#messageBox").val(data);
+        });
+        $("#sendButton").click(function(){
+            $.post("/message-add", {message: $("#messageBox").val()}, function(data, status){
+                alert("Data: " + data + "\nStatus: " + status);
+            });
+        });
+    });
