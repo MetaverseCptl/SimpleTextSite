@@ -1,30 +1,22 @@
-let express = require('express')
-let fs = require('fs')
 
-let app = express()
-
-app.use(express.urlencoded({ extended: true }))
-
-app.post('/message-add', function(req, res) {
-  let message = req.body.message + "\n"
-
-  fs.appendFile('messages.txt', message, function(err) {
-    if(err) {
-      res.status(500).send()
-    } else {
-      res.status(200).send()
-    }
+describe('POST /message-add', function() {
+  it('responds with 200', function(done) {
+    request(app)
+      .post('/message-add')
+      .send({message: 'Hello from test!'})
+      .expect(200, done)
+  })
+  it('responds with 500 when message is not provided', function(done) {
+    request(app)
+     .post('/message-add')
+     .send({})
+     .expect(500, done)
   })
 })
 
-app.get('/message-get', function(req, res) {
-  fs.readFile('messages.txt', function(err, data) {
-    if(err) {
-      res.status(500).send()
-    } else {
-      res.send(data.toString())
-    }
+describe('GET /message-get', function() {
+  it('responds with 200 and receives messages', function(done) {
+    request(app)
+     .get('/message-get')
+     .expect(200, done)
   })
-})
-
-app.listen(7777)
