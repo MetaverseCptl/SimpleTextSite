@@ -1,3 +1,4 @@
+body {
     background-color: #282a36;
     font-family: 'Courier New', Courier, monospace;
     color: #90949C;
@@ -23,9 +24,9 @@ input[type=submit]{
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    display: inline-block;
     font-size:14px;
 }
 
 input[type=submit]:hover{
     background-color: #45a049;
+}
